@@ -1,0 +1,299 @@
+@font-face {
+  font-family: "Overlock";
+  src: local("Overlock"), url("../fonts/Overlock-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Overlock";
+  src: local("Overlock Bold"), url("../fonts/Overlock-Bold.ttf");
+  font-weight: bold;
+}
+
+:root {
+  --clr-accent-300: hsl(39 94% 57%);
+  --clr-accent-400: hsl(39 100% 41%);
+
+  --clr-neutral-100: hsl(0 0% 100%);
+  --clr-neutral-800: hsl(0 0% 20%);
+  --clr-neutral-900: hsl(0 0% 0%);
+
+  --ff-base: system-ui, sans-serif;
+  --ff-accent: Overlock, serif;
+
+  --fs-200: 0.875rem;
+  --fs-300: 0.925rem;
+  --fs-400: 1rem;
+  --fs-500: 1.25rem;
+  --fs-600: 1.325rem;
+  --fs-700: 2rem;
+  --fs-800: 2.5rem;
+
+  @media (width > 720px) {
+    --fs-300: 1rem;
+    --fs-400: 1.125rem;
+    --fs-500: 1.3125rem;
+    --fs-600: 1.5rem;
+    --fs-700: 2.5rem;
+    --fs-800: 3rem;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes move-up {
+  from {
+    translate: 0 100px;
+  }
+  to {
+    translate: 0 0;
+  }
+}
+
+body {
+  color: var(--clr-neutral-800);
+  font-size: var(--fs-400);
+  font-family: var(--ff-base);
+  line-height: 1.6;
+  margin: 0;
+}
+
+h1,
+h2 {
+  color: var(--clr-accent-400);
+  font-family: var(--ff-accent);
+  line-height: 1.1;
+}
+
+h1 {
+  font-size: var(--fs-800);
+}
+
+h1 span {
+  display: block;
+  font-size: 0.75em;
+  font-weight: lighter;
+  color: var(--clr-neutral-800);
+}
+
+h2 {
+  text-align: center;
+  font-size: var(--fs-700);
+}
+
+h3 {
+  font-size: var(--fs-600);
+}
+
+a {
+  color: var(--clr-accent-400);
+}
+
+a:hover,
+a:focus-visible {
+  color: inherit;
+}
+
+.button {
+  font: inherit;
+  font-weight: 700;
+  text-transform: uppercase;
+  background: var(--clr-accent-300);
+  border: 0;
+  padding: 0.75em 1.5em;
+}
+
+.button:hover,
+.button:focus-visible {
+  background: var(--clr-neutral-800);
+  color: var(--clr-accent-300);
+}
+
+.lede {
+  font-size: var(--fs-500);
+}
+
+.wrapper {
+  max-inline-size: 900px;
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+
+.three-columns {
+  display: grid;
+  gap: 1rem;
+
+  @media (width > 720px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.page-header {
+  background: var(--clr-neutral-900);
+  padding: 1rem;
+}
+
+.page-header-layout {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.primary-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.primary-nav a {
+  text-decoration: none;
+  color: var(--clr-neutral-100);
+  font-weight: 700;
+
+  &:hover,
+  &:focus-visible {
+    color: var(--clr-accent-300);
+  }
+}
+
+.hero {
+  animation: fade-in 2s, move-up 2s;
+  padding-block: 100px;
+  background-image: url(../images/chess-bg.jpg);
+  background-size: cover;
+}
+
+.hero-content {
+  opacity: 0;
+  animation: fade-in 2s forwards, move-up 2s;
+  animation-delay: 0.5s;
+
+  text-align: center;
+  background: hsl(0 0% 100% / 0.8);
+  padding: 40px;
+}
+
+.hero-content > :first-child {
+  margin-block-start: 0;
+}
+
+.hero-content > :last-child {
+  margin-block-end: 0;
+}
+
+.hero ~ * {
+  opacity: 0;
+  animation: fade-in 2s 1s forwards;
+}
+
+.course {
+  --transition-duration: 325ms;
+
+  padding: 100px 21px 21px;
+  color: var(--clr-neutral-100);
+  /* background: hsl(0 0% 0%); */
+  font-size: var(--fs-300);
+
+  position: relative;
+
+  display: grid;
+  gap: 1rem;
+  align-content: end;
+
+  overflow: hidden;
+}
+
+.course > * {
+  margin: 0;
+}
+
+.course-title {
+  line-height: 1.1;
+}
+
+/* .course-description {
+  translate: 0 100px;
+  transition: translate var(--transition-duration);
+} */
+
+.course-tag {
+  position: absolute;
+  top: 16px;
+  left: 0;
+
+  font-family: var(--ff-accent);
+  font-weight: 700;
+  background: var(--clr-accent-300);
+  color: var(--clr-neutral-900);
+  padding: 0.25em 0.5em;
+}
+
+.course.sale {
+  .course-title::after {
+    content: "Sale";
+    position: absolute;
+    left: 0;
+    top: 55px;
+    font-size: var(--fs-400);
+    font-family: var(--ff-accent);
+    font-weight: 700;
+    background: var(--clr-sale);
+    color: var(--clr-neutral-100);
+    padding: 0.25em 0.5em;
+  }
+}
+
+.course.featured::before {
+  content: "⭐" / "Featured course";
+  position: absolute;
+  top: 0;
+  right: 16px;
+  padding: 4px;
+  left: auto;
+  font-size: var(--fs-300);
+  background: var(--clr-neutral-900);
+}
+
+.course-image {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  transition: scale var(--transition-duration);
+}
+
+.course:hover {
+  .course-image {
+    scale: 1.1;
+  }
+
+  /* .course-description {
+    translate: 0;
+  } */
+}
+
+.page-footer {
+  text-align: center;
+  background-image: linear-gradient(#444, #000);
+  color: var(--clr-neutral-100);
+  padding: 50px;
+  margin-block-start: 100px;
+}

@@ -1,0 +1,166 @@
+@font-face {
+  font-family: "Overlock";
+  src: local("Overlock"), url("../fonts/Overlock-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Overlock";
+  src: local("Overlock Bold"), url("../fonts/Overlock-Bold.ttf");
+  font-weight: bold;
+}
+
+:root {
+  --clr-accent-300: hsl(39 94% 57%);
+  --clr-accent-400: hsl(39 100% 41%);
+
+  --clr-neutral-100: hsl(0 0% 100%);
+  --clr-neutral-800: hsl(0 0% 20%);
+  --clr-neutral-900: hsl(0 0% 0%);
+
+  --fs-400: 1.125rem;
+  --fs-500: 1.3125rem;
+  --fs-600: 1.5rem;
+  --fs-700: 2.25rem;
+  --fs-800: 3rem;
+
+  --ff-base: system-ui, sans-serif;
+  --ff-accent: Overlock, serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  color: var(--clr-neutral-800);
+  font-size: var(--fs-400);
+  font-family: var(--ff-base);
+  line-height: 1.6;
+  margin: 0;
+}
+
+h1,
+h2 {
+  color: var(--clr-accent-400);
+  font-family: var(--ff-accent);
+  line-height: 1.1;
+}
+
+h1 {
+  font-size: var(--fs-800);
+}
+
+h1 span {
+  display: block;
+  font-size: 0.75em;
+  font-weight: lighter;
+  color: var(--clr-neutral-800);
+}
+
+h2 {
+  font-size: var(--fs-700);
+}
+
+h3 {
+  font-size: var(--fs-600);
+}
+
+a {
+  color: var(--clr-accent-400);
+}
+
+a:hover,
+a:focus-visible {
+  color: inherit;
+}
+
+.button {
+  font: inherit;
+  font-weight: 700;
+  text-transform: uppercase;
+  background: var(--clr-accent-300);
+  border: 0;
+  padding: 0.75em 1.5em;
+}
+
+.button:hover,
+.button:focus-visible {
+  background: var(--clr-neutral-800);
+  color: var(--clr-accent-300);
+}
+
+.lede {
+  font-size: var(--fs-500);
+}
+
+.wrapper {
+  max-inline-size: 900px;
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+
+.three-columns {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.page-header {
+  background: var(--clr-neutral-900);
+  padding: 1rem;
+}
+
+.page-header-layout {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.primary-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.primary-nav a {
+  text-decoration: none;
+  color: var(--clr-neutral-100);
+  font-weight: 700;
+
+  &:hover,
+  &:focus-visible {
+    color: var(--clr-accent-300);
+  }
+}
+
+.hero {
+  padding-block: 100px;
+  background-image: url(../images/chess-bg.jpg);
+  background-size: cover;
+}
+
+.hero-content {
+  text-align: center;
+  background: hsl(0 0% 100% / 0.8);
+  padding: 40px;
+}
+
+.hero-content > :first-child {
+  margin-block-start: 0;
+}
+
+.hero-content > :last-child {
+  margin-block-end: 0;
+}
+
+.page-footer {
+  text-align: center;
+  background-image: linear-gradient(#444, #000);
+  color: var(--clr-neutral-100);
+  padding: 50px;
+}

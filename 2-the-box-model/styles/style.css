@@ -1,0 +1,70 @@
+@font-face {
+  font-family: "Overlock";
+  src: local("Overlock"), url("../fonts/Overlock-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Overlock";
+  src: local("Overlock Bold"), url("../fonts/Overlock-Bold.ttf");
+  font-weight: bold;
+}
+
+:root {
+  --clr-accent: hsl(39 100% 41%);
+  --clr-neutral-800: hsl(0 0% 20%);
+
+  --fs-400: 1.125rem;
+  --fs-500: 1.3125rem;
+  --fs-600: 1.5rem;
+  --fs-700: 2.25rem;
+  --fs-800: 3rem;
+
+  --ff-base: system-ui, sans-serif;
+  --ff-accent: Overlock, serif;
+}
+
+body {
+  color: var(--clr-neutral-800);
+  font-size: var(--fs-400);
+  font-family: var(--ff-base);
+  line-height: 1.6;
+}
+
+h1,
+h2 {
+  color: var(--clr-accent);
+  font-family: var(--ff-accent);
+  line-height: 1.1;
+}
+
+h1 {
+  font-size: var(--fs-800);
+}
+
+h1 span {
+  display: block;
+  font-size: 0.75em;
+  font-weight: lighter;
+  color: black;
+}
+
+h2 {
+  font-size: var(--fs-700);
+}
+
+h3 {
+  font-size: var(--fs-600);
+}
+
+a {
+  color: var(--clr-accent);
+}
+
+a:hover,
+a:focus-visible {
+  color: var(--clr-neutral-800);
+}
+
+.lede {
+  font-size: var(--fs-500);
+}
